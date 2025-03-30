@@ -3,12 +3,14 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const sequelize = require('./config/database');
 const tareasRoutes = require('./routes/tareas');
+const welcomeRoutes = require('./routes/welcome');
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/tareas', tareasRoutes);
+app.use('/', welcomeRoutes);
 
 const PORT = process.env.PORT || 3000;
 
